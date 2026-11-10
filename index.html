@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sumin Hong</title>
+  <meta name="description" content="Sumin Hong builds and evaluates machine learning systems, from language models to brain imaging and microscopy pipelines. M.S. in Artificial Intelligence at Columbia University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <!-- Hero: name, one-line statement, primary links -->
+    <header class="hero">
+      <h1>Sumin Hong</h1>
+      <p class="lede">I build and evaluate machine learning systems, from language models to brain imaging and microscopy pipelines.</p>
+      <nav class="links" aria-label="Contact and profiles">
+        <a href="assets/CV_SuminHong.pdf">CV (PDF)</a>
+        <a href="https://github.com/suminong">GitHub</a>
+        <a href="https://www.linkedin.com/in/suminhong/">LinkedIn</a>
+        <a href="mailto:sh4964@columbia.edu">sh4964@columbia.edu</a>
+      </nav>
+    </header>
+
+    <!-- Signature graphic: tRNA base pairs drawn as arcs (rendered by script.js) -->
+    <figure class="arcs">
+      <svg id="arc-diagram" role="img" aria-labelledby="arc-caption"></svg>
+      <figcaption id="arc-caption">Base pairs of a tRNA, drawn as arcs over its sequence. I tested whether a genomic language model's attention recovers pairs like these.</figcaption>
+    </figure>
+
+    <section class="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <p>I'm an M.S. student in Artificial Intelligence at Columbia University, graduating in May 2027, with a B.S. in Bioengineering and Data Science from the University of Washington. I started in the wet lab and moved to the models that read the images, signals, and sequences those experiments produce.</p>
+      <p>I'm looking for software engineering roles on teams that build and evaluate machine learning systems. The work I enjoy most is checking whether a model holds up on data it has never seen.</p>
+    </section>
+
+    <section aria-labelledby="work-h">
+      <h2 id="work-h">Selected work</h2>
+
+      <article class="work">
+        <div class="meta">
+          <p>2026 to now</p>
+          <p>AlQuraishi Lab, Columbia</p>
+        </div>
+        <div class="body">
+          <h3>Do genomic language models learn RNA structure?</h3>
+          <p>I rebuilt Minerva's RNA base-pairing benchmark (Rfam 15.0; 672 families, 6.1M candidate pairs) to test whether the lab's genomic language models, up to 661M parameters, encode RNA secondary structure. The signal sits in a few attention heads, and the default head-weight training was undertrained. Caching per-head attention maps cut each training run from hours to seconds, which let me search 90 to 126 configurations per model and raise the 35-layer model's test AUPRC from 0.457 to 0.486, about 80 times random.</p>
+          <ul class="tags" aria-label="Tools">
+            <li>PyTorch</li><li>Attention analysis</li><li>SLURM</li><li>HPC</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="meta">
+          <p>Nov 2026 to now</p>
+          <p>COMS 4705, Columbia</p>
+          <p>Team lead</p>
+        </div>
+        <div class="body">
+          <h3>Does learned bug triage transfer to new codebases?</h3>
+          <p>Bug triage models are usually trained and tested on the same project. In our pilot, BM25 Recall@10 fell from 0.50 on Firefox to 0.19 on VS Code. I lead a team of three, designed a leakage-free evaluation harness with temporal splits and cross-tracker transfer tests over 100K+ bug reports from 8 open-source projects, and am building a dense duplicate-bug retriever trained with contrastive learning and hard negatives in a custom PyTorch loop. Results are expected in December 2026.</p>
+          <ul class="tags" aria-label="Tools">
+            <li>PyTorch</li><li>Contrastive learning</li><li>Information retrieval</li><li>Evaluation design</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="meta">
+          <p>Oct 2026</p>
+          <p>Columbia AI Alignment Club</p>
+        </div>
+        <div class="body">
+          <h3>Trust issues: what actually breaks up an AI cartel?</h3>
+          <p>In a three-agent market of LLM agents (Qwen 3.5 9B via Ollama), I designed a talk-vs-action control experiment. Greedy offers alone kept prices at the cartel level (52), while silent overproduction crashed them to cost (4) within one round. It became a key figure in our team's paper. I also added three experimental conditions to the team's Python simulation framework, with all existing regression tests passing.</p>
+          <ul class="tags" aria-label="Topics">
+            <li>LLM agents</li><li>Python</li><li>Experiment design</li>
+          </ul>
+          <p class="more"><a href="https://apartresearch.com/sprints/projects/trust-issues-how-to-disrupt-ai-cartels-qlne">Read the paper</a></p>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="meta">
+          <p>2026 to now</p>
+          <p>LIINC, Columbia</p>
+        </div>
+        <div class="body">
+          <h3>Cleaning EEG recorded inside an MRI scanner</h3>
+          <p>In this simultaneous EEG-fMRI dataset (255 sessions, 33 subjects, 5 kHz), scanner artifacts were about 20 times larger than brain signal. I implemented gradient artifact removal (average artifact subtraction) from scratch in Python, bringing channel amplitude from about 700 to 1,100 µV down to 30 to 55 µV. Systematic QC also caught that 44% of resting-state epochs were scored as sleep and that one subject was recorded without scanner clock sync.</p>
+          <ul class="tags" aria-label="Tools">
+            <li>Signal processing</li><li>Python</li><li>Quality control</li>
+          </ul>
+          <!-- Add the repo link once it is public:
+          <p class="more"><a href="https://github.com/suminong/REPO-NAME">Code on GitHub</a></p>
+          -->
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="meta">
+          <p>2023 to 2026</p>
+          <p>Zheng Lab, UW Bioengineering</p>
+        </div>
+        <div class="body">
+          <h3>Segmentation-free phenotyping of brain endothelial junctions</h3>
+          <p>Standard cell segmentation failed on dense 3D confocal images, so drug screens across 300+ biological replicates had no quantitative junction readout. I showed segmentation isn't needed: junction shape can be read from intensity profiles between neighboring nuclei. My pipeline extracts 5 junction features across 182 images, clusters phenotypes with Gaussian mixture models, and ranked 25 compounds by how well they rescued barrier junctions. The work supports a co-first-author manuscript and a bioRxiv preprint.</p>
+          <ul class="tags" aria-label="Tools">
+            <li>Computer vision</li><li>Cellpose</li><li>scikit-learn</li><li>pandas</li>
+          </ul>
+          <p class="more"><a href="https://doi.org/10.64898/2025.12.11.692686">Read the preprint</a></p>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="pubs-h">
+      <h2 id="pubs-h">Publications</h2>
+      <ol class="pubs">
+        <li>Shin, Y.J.*, <b>Hong, S.</b>*, Lee, J.D., Zheng, Y. Segmentation-free, pixel-level machine learning reveals distinct endothelial junction phenotypes in traumatic brain injury models. <i>In preparation.</i></li>
+        <li>Shin, Y.J., Wei, L., <b>Hong, S.</b>, et al., Zheng, Y. A machine learning-3D microvessel platform identifies kinase targets restoring blood-brain-barrier endothelial integrity. <i>bioRxiv</i>, 2025. <a href="https://doi.org/10.64898/2025.12.11.692686">doi:10.64898/2025.12.11.692686</a></li>
+        <li>Shin, Y.J., Wei, L., <b>Hong, S.</b>, et al., Zheng, Y. Polypharmacological kinase screening and prediction in 3D brain microvessel models for enhancing barrier integrity in traumatic brain injury. <i>PNAS, under review.</i></li>
+        <li>Shin, Y.J., Evitts, K., et al., <b>Hong, S.</b>, Hadland, B., Zheng, Y. Perfusable vascular organoids for modeling hierarchical cerebrovasculature. <i>In preparation.</i></li>
+      </ol>
+      <p class="note">* Equal contribution.</p>
+
+      <details class="talks">
+        <summary>Seven talks and posters on the junction pipeline, 2025 to 2026</summary>
+        <ul>
+          <li>ISSCR International Symposium on AI and Digital Biology, poster, Oct 2025</li>
+          <li>UW Undergraduate Research Symposium, oral, May 2026 and May 2025</li>
+          <li>UW Bioengineering Research Showcase, poster, Jun 2026</li>
+          <li>UW STEM Expo, poster, Nov 2025</li>
+          <li>ISCRM Poster Symposium, poster, Aug 2025</li>
+          <li>ISCRM Mini-Symposium, lightning talk, Jul 2025</li>
+        </ul>
+      </details>
+    </section>
+
+    <section aria-labelledby="teach-h">
+      <h2 id="teach-h">Teaching</h2>
+      <dl class="pairs">
+        <dt>BIOEN 460/560 &amp; CSE 490, Neural Engineering</dt>
+        <dd>Teaching assistant, UW, fall 2025. Graded programming assignments and gave feedback on code and statistics to 100+ students learning machine learning for neuroscience and brain-machine interfaces.</dd>
+        <dt>BIOEN 461/561, Neural Engineering Tech Studio</dt>
+        <dd>Teaching assistant, UW, spring 2026. Mentored 30+ student teams from concept to working neural engineering prototype.</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="skills-h">
+      <h2 id="skills-h">Tools</h2>
+      <dl class="pairs pairs--compact">
+        <dt>Languages</dt><dd>Python, R, MATLAB</dd>
+        <dt>Machine learning</dt><dd>PyTorch, scikit-learn, contrastive learning, attention analysis, Gaussian mixture models, LLM agents (Ollama)</dd>
+        <dt>Data</dt><dd>NumPy, pandas, Matplotlib, ggplot2, statistical modeling</dd>
+        <dt>Signals and imaging</dt><dd>EEG-fMRI preprocessing and artifact removal, Cellpose, confocal image analysis</dd>
+        <dt>Systems</dt><dd>Git, Linux, HPC clusters with SLURM and GPUs, Jupyter</dd>
+      </dl>
+    </section>
+
+    <footer class="foot">
+      <p>Sumin Hong, New York. Updated November 2026.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
